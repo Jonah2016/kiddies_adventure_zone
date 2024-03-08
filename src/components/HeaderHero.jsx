@@ -18,14 +18,14 @@ function HeaderHero(props) {
 
   return (
     <div className="md:flex md:flex-row sm:flex-col">
-      <div class="w-[100%]">
+      <div className="w-[100%]">
         <img
           loading="lazy"
           className="h-[22rem] md:h-[36rem] w-full object-cover"
           src={banner}
           alt="hero"
         />
-        <div className="absolute top-[20%] left-[10%] right-[10%] md:top-[25%] md:left-[15%] md:right-[15%] lg:top-[40%] lg:left-[20%] lg:right-[20%] text-center">
+        <div className="absolute top-[25%] left-[10%] right-[10%] md:top-[25%] md:left-[15%] md:right-[15%] lg:top-[40%] lg:left-[20%] lg:right-[20%] text-center">
           {showMainTitle && (
             <h1
               className={`md:text-7xl text-4xl font-extrabold mb-3`}

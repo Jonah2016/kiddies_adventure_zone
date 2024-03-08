@@ -8,7 +8,7 @@ function Hero(props) {
   const heroImg = props.image;
   return (
     <div className="md:flex md:flex-row sm:flex-col">
-      <div class=" md:w-[70%] sm:w-[100%]">
+      <div className=" md:w-[70%] sm:w-[100%]">
         <img
           loading="lazy"
           className="h-[22rem] md:h-[36rem] w-full object-cover"

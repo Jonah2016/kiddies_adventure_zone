@@ -3,45 +3,51 @@ import Navbar from "../components/Navbar";
 import styles from "../assets/css/custom.module.css";
 import HeaderHero from "../components/HeaderHero";
 import { useEffect, useState } from "react";
+import SvgIcon from "../components/SvgIcon";
+import Footer from "../components/Footer";
 
 const heroProperties = {
   banner:
-    "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://scientia.themerex.net/wp-content/uploads/2018/01/bg_study-copyright.jpg?id=332",
   mainTitle: {
     text: "Services",
     color: "#ffff",
     show: true,
   },
   subTitle: {
-    text: "Maecenas at magna pulvinar, pharetra neque nec, condimentum mauris. Nullam sapien augue, auctor ac augue sed, fermentum rhoncus nunc. ",
+    text: "More than just fun, it's learning in action! Kiddies Adventure Zone provides a stimulating environment where children explore, solve problems, and socialize.",
     color: "#ffff",
-    show: false,
+    show: true,
   },
   button: { show: false, url: "#", text: "Read more" },
 };
 
-function renderService(serv) {
-  const resp = serv.map((item) => (
-    <div class="mb-14 lg:mb-0" key={item._id}>
-      <div class="block m-5 h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-        <div class="flex justify-center">
-          <div class="-mt-8 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-md">
-            {item.icon}
+function renderService(services) {
+  const serviceItems = services.map((item) => (
+    <div className="mb-14 lg:mb-20" key={item._id}>
+      <div className="block m-5 h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[#202020] hover:bg-gray-800">
+        <div className="flex justify-center">
+          <div
+            className={`-mt-8 inline-block rounded-full ${styles.primary__bg} p-4 shadow-md hover:rotate-45`}
+          >
+            <SvgIcon svgData={item.icon} fillColor="#ffff" />
           </div>
         </div>
-        <div class="p-6">
-          <h5 class="mb-4 text-lg font-semibold">{item.title}</h5>
-          <p>{item.description}</p>
+        <div className="p-6">
+          <h5 className="mb-4 text-3xl text-[#f8f8f8] hover:text-[#fe7259] font-semibold">
+            {item.title}
+          </h5>
+          <p className="text-gray-300 ">{item.description}</p>
         </div>
       </div>
     </div>
   ));
 
-  return resp;
+  return serviceItems;
 }
 
 function Services() {
-  const [service, setService] = useState();
+  const [service, setService] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:3001/api/service")
@@ -51,22 +57,29 @@ function Services() {
       });
   }, []);
 
-  const serviceData = { ...service };
-
   return (
     <main className="md:m-6 m-auto max-w-[1280px]">
       <Navbar />
       <HeaderHero properties={heroProperties} />
 
-      <div class="container my-24 mx-auto md:px-6">
-        <section class="mb-32 text-center">
-          <h2 class="mb-20 text-3xl font-bold">Why is it so great?</h2>
+      <div className="container my-20 mx-auto md:px-6">
+        <section className="mb-32 text-center">
+          <h2 className="mb-6 text-3xl font-bold">Why is it so great?</h2>
+          <p className="mb-16 lg:w-2/3 w-100 lg:mx-auto mx-4">
+            Unleash the Adventure! Kiddies Adventure Zone offers a safe and
+            stimulating play area for children of all ages. Book your visit
+            today and let them explore, climb, and make memories that last!
+          </p>
 
-          <div class="grid lg:grid-cols-3 lg:gap-x-12">
-            {serviceData.length > 0 && renderService(serviceData)}
+          <div className="grid lg:grid-cols-3 lg:gap-x-12">
+            {service.length > 0 && renderService(service)}
           </div>
         </section>
       </div>
+
+      <section className="min-h-100">
+        <Footer />
+      </section>
     </main>
   );
 }

@@ -18,7 +18,7 @@ function Navbar() {
           <Link to={"/"} className="nav__logo m-4">
             <img
               src={logo}
-              class="img-fluid block h-10 w-25"
+              className="img-fluid block h-10 w-25"
               alt="adom adventure zone"
             />
           </Link>
@@ -55,7 +55,7 @@ function Navbar() {
             <Link to={"/"} className="nav__log m-4 w-full">
               <img
                 src={logo}
-                class="img-fluid block  mx-4 h-10 w-25"
+                className="img-fluid block  mx-4 h-10 w-25"
                 alt="adom adventure zone"
               />
             </Link>
