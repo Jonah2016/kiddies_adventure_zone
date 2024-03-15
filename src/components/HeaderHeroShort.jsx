@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function HeaderHeroShort(props) {
-  const { banner, mainTitle, subTitle, button } = props.properties;
+  const { banner, mainTitle, button } = props.properties;
   const heroTitle = mainTitle.text;
   const showMainTitle = mainTitle.show;
   const mainTitleColor = mainTitle.color;
