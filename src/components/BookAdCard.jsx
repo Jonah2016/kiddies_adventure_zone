@@ -1,5 +1,6 @@
 import React from "react";
 import "./BookAdCard.css";
+import { Link } from "react-router-dom";
 
 function BookAdCard() {
   return (
@@ -37,9 +38,9 @@ function BookAdCard() {
               about my love. Life is somethink like...
             </div>
             <div className="carousel__action">
-              <a className="btn btn__lg btn__primary rounded__pill" href="#">
+              <Link className="btn btn__lg btn__primary rounded__pill" to={"/"}>
                 Buy Now
-              </a>
+              </Link>
               <div className="product__price rounded__pill">
                 <i className="icon ri-money-dollar-circle-line" />
                 <div className="price__content">

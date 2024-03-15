@@ -39,12 +39,12 @@ function CardsSlider(props) {
                 <h5
                   className={`mb-3 text-xl h-auto md:h-12 font-medium leading-tight text-[${slide.titleColor}] dark:text-[${slide.titleColor}] `}
                 >
-                  <a
-                    href="#"
+                  <Link
+                    to={"/"}
                     className={`hover:underline hover:underline-offset-3 font-bold ${styles.clamp__2} text-[${slide.titleColor}] `}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 </h5>
               )}
               {options.author && (
@@ -62,15 +62,15 @@ function CardsSlider(props) {
                 </p>
               )}
               {options.button && (
-                <a
-                  href="#"
+                <Link
+                  to={"/"}
                   className={`pt-2 font-medium text-[1.15rem] flex items-center hover:underline hover:underline-offset-3 text-[${slide.btnColor}]`}
                 >
                   Read more
                   <span className="px-1">
                     <AiOutlineArrowRight size={20} />
                   </span>
-                </a>
+                </Link>
               )}
             </div>
           </div>
