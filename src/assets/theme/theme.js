@@ -111,4 +111,4 @@ export const FONTS = {
   },
 };
 
-export default { COLORS, SIZES, FONTS };
+// export default { COLORS, SIZES, FONTS };
