@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import HeaderHeroShort from "../components/HeaderHeroShort";
 import Footer from "../components/Footer";
 import Event from "../components/Event";
+import RegisterBanner from "../components/RegisterBanner";
 
 const heroProperties = {
   banner:
@@ -32,6 +33,10 @@ function Events() {
       {/* events section */}
       <section className="min-h-100 m-0 md:m-6">
         <Event limit={10} />
+      </section>
+
+      <section className="mb-12 min-h-100">
+        <RegisterBanner />
       </section>
 
       <section className="min-h-100">

@@ -5,7 +5,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 function CardsSlider(props) {
   const { data, containerHeight, slide, slideImage, options } = props;
-  const books = { ...data };
 
   const handleNextBtnClick = () => {
     const slidesContainer = document.querySelector(".slidesContainer");
@@ -91,7 +90,6 @@ function CardsSlider(props) {
 
       <div className="absolute top-0 -left-4 h-full items-center flex">
         <button
-          role="button"
           className="prev px-2 py-2 rounded-full bg-neutral-100 text-neutral-900 group shadow-[0_2px_15px_-3px_rgba(0,0,0,0.08),0_10px_20px_-2px_rgba(0,0,0,0.08)] border"
           aria-label="prev"
           onClick={handleNextBtnClick}
@@ -114,7 +112,6 @@ function CardsSlider(props) {
       </div>
       <div className="absolute top-0 -right-4 h-full items-center flex">
         <button
-          role="button"
           className="next px-2 py-2 rounded-full bg-neutral-100 text-neutral-900 group shadow-[0_2px_15px_-3px_rgba(0,0,0,0.08),0_10px_20px_-2px_rgba(0,0,0,0.08)] border"
           aria-label="next"
           onClick={handlePrevBtnClick}
