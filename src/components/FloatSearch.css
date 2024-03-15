@@ -7,10 +7,10 @@
     border-radius: 0% 30px 30px 30px;
     transition: width 1s;
     box-shadow: 5px 5px 20px #d8e6fd, -5px -5px 30px #f8f8f8;
-    position: fixed;
-    top: 50%;
+    position: relative;
+    /* top: 30%;
     left: 0;
-    right: 0;
+    right: 0; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -22,7 +22,7 @@
     border-radius: 50%;
   }
   .darksoul-search-bar:hover {
-    width: 400px;
+    width: 30rem;
     border-radius: 0% 30px 30px 30px;
   }
   .darksoul-search-input {
@@ -45,7 +45,7 @@
   }
   @media only screen and (max-width: 600px) {
     .darksoul-search-bar:hover {
-      width: 80%;
+      width: 20rem;
       border-radius: 0% 30px 30px 15px;
     }
   }

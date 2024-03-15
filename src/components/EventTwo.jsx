@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../assets/css/custom.module.css";
 import Title from "./Title";
-import NormalCard from "./NormalCard";
+import NormalCardTwo from "./NormalCardTwo";
 
-function Events({ limit }) {
+function EventTwo({ limit }) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -20,14 +20,18 @@ function Events({ limit }) {
         <div className="p-4">
           <Title style={`${styles.header__text} `} title="News and Events" />
         </div>
-        <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
+        <div className="grid-cols-1 sm:grid md:grid-cols-3 gap-10 ">
           {events.slice(0, limit).map((item) => (
-            <NormalCard
+            <NormalCardTwo
               key={item._id}
               data={{
                 title: item.name,
                 image: item.image,
-                briefing: item.description,
+                description: item.description,
+                briefing: item.briefing,
+                host: item.host,
+                url: item.url,
+                rate: item.rating,
               }}
             />
           ))}
@@ -37,4 +41,4 @@ function Events({ limit }) {
   );
 }
 
-export default Events;
+export default EventTwo;

@@ -2,8 +2,16 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeaderHeroShort from "../components/HeaderHeroShort";
 import Footer from "../components/Footer";
-import Event from "../components/Event";
 import RegisterBanner from "../components/RegisterBanner";
+import EventTwo from "../components/EventTwo";
+import CardsSlider from "../components/CardsSlider";
+import Title from "../components/Title";
+import styles from "../assets/css/custom.module.css";
+import { COLORS } from "../assets/theme/theme";
+import useFetchData from "../middleware/hooks";
+import Loading from "../components/Loading";
+
+const { LOAD_4 } = require("../constants/index.js");
 
 const heroProperties = {
   banner:
@@ -22,6 +30,8 @@ const heroProperties = {
 };
 
 function Events() {
+  const { data, loading } = useFetchData(process.env.REACT_APP_SERVICE_URL);
+
   return (
     <main className="md:m-6 m-auto max-w-[1280px] ">
       <Navbar />
@@ -32,11 +42,48 @@ function Events() {
 
       {/* events section */}
       <section className="min-h-100 m-0 md:m-6">
-        <Event limit={10} />
+        <EventTwo limit={10} />
       </section>
 
       <section className="mb-12 min-h-100">
         <RegisterBanner />
+      </section>
+
+      {/* library books */}
+      <section className="min-h-100 bg-white">
+        <div className="container mx-auto h-[36rem] md:h-[40rem]">
+          <div className="pt-12 pb-6 px-12">
+            <Title
+              style={`${styles.header__text} `}
+              title="Explore Our Books"
+            />
+          </div>
+          {!loading ? (
+            <div className="px-6 md:px-12">
+              <CardsSlider
+                data={data}
+                containerHeight="25rem"
+                slide={{
+                  mdw: "15rem",
+                  w: "100%",
+                  titleColor: COLORS.dark,
+                  bodyColor: COLORS.faintBlack,
+                  btnColor: COLORS.primary,
+                }}
+                slideImage={{ h: "12rem", w: "100%" }}
+                options={{
+                  title: true,
+                  genre: true,
+                  author: true,
+                  briefing: true,
+                  button: true,
+                }}
+              />
+            </div>
+          ) : (
+            <Loading type={LOAD_4} />
+          )}
+        </div>
       </section>
 
       <section className="min-h-100">

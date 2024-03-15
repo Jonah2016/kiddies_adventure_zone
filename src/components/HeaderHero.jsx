@@ -18,7 +18,7 @@ function HeaderHero(props) {
       <div className="w-[100%]">
         <img
           loading="lazy"
-          className="h-[22rem] md:h-[36rem] w-full object-cover"
+          className="h-[25rem] md:h-[36rem] w-full object-cover"
           src={banner}
           alt="hero"
         />

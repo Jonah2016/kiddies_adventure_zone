@@ -115,10 +115,10 @@
       background-color: #fdca95;
     }
     .book-img {
-      width: 100%;
+      width: 16rem;
       height: 85%;
-      max-width: 500px;
-      min-width: 200px;
+      /* max-width: 500px;
+      min-width: 200px; */
       border-radius: 3px;
       transition: transform 1s;
       object-fit: cover;

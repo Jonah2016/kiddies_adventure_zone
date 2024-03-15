@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function useFetchData(url) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +21,7 @@ function useFetchData(url) {
     fetchData();
   }, [url]); // Dependency array to trigger refetch on URL change
 
-  return { data, error, loading };
+  return { data, loading, error };
 }
 
 export default useFetchData;
