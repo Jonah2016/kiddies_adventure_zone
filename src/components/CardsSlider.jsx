@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../assets/css/custom.module.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
