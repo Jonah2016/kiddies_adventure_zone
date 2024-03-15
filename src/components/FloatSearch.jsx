@@ -10,6 +10,7 @@ function FloatSearch() {
           src="https://darksoul-codepen.github.io/search-icon.png"
           width={50}
           height={50}
+          alt="search"
         />
         <input
           type="text"
