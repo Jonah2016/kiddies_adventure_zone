@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import styles from "../assets/css/custom.module.css";
 import HeaderHero from "../components/HeaderHero";
-import { useEffect, useState } from "react";
-import SvgIcon from "../components/SvgIcon";
+import RegisterBanner from "../components/RegisterBanner";
 import Footer from "../components/Footer";
+
+import SvgIcon from "../components/SvgIcon";
 
 const heroProperties = {
   banner:
@@ -50,7 +51,7 @@ function Services() {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/service")
+    fetch(process.env.REACT_APP_SERVICE_URL)
       .then((response) => response.json())
       .then((data) => {
         setService(data);
@@ -76,6 +77,11 @@ function Services() {
           </div>
         </section>
       </div>
+
+      {/* register banner */}
+      <section className="min-h-100">
+        <RegisterBanner />
+      </section>
 
       <section className="min-h-100">
         <Footer />

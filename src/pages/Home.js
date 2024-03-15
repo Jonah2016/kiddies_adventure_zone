@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../assets/css/custom.module.css";
 import { COLORS } from "../assets/theme/theme";
 import HomeHero from "../components/HomeHero";
@@ -15,54 +15,6 @@ import CardsSlider from "../components/CardsSlider";
 import RegisterBanner from "../components/RegisterBanner";
 import ServiceItem from "../components/ServiceItem";
 import Footer from "../components/Footer";
-
-const booksData = [
-  {
-    id: 1,
-    image:
-      "https://images.unsplash.com/photo-1533468432434-200de3b5d528?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    title: "Snow White and the Dwarfs",
-    briefing:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    moreClasses: "",
-  },
-  {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1533468432434-200de3b5d528?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-    moreClasses: "",
-    title: "Hunting and Fishing",
-    briefing:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-  },
-  {
-    id: 3,
-    image:
-      "https://images.pexels.com/photos/3026364/pexels-photo-3026364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "Goodness and Mercies",
-    briefing:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    moreClasses: "",
-  },
-  {
-    id: 4,
-    image:
-      "https://images.pexels.com/photos/8576739/pexels-photo-8576739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "Nursery Ryhmes for Adults",
-    briefing:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    moreClasses: "",
-  },
-  {
-    id: 5,
-    image:
-      "https://images.pexels.com/photos/8576739/pexels-photo-8576739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "The Good Shepherd",
-    briefing:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    moreClasses: "",
-  },
-];
 
 const servicesData = [
   {
@@ -95,6 +47,32 @@ const heroImg =
   "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442";
 
 function Home() {
+  const [service, setService] = useState({});
+  const [books, setBooks] = useState({});
+  const [about, setAbout] = useState();
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_ABOUT_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setAbout(data);
+      });
+
+    fetch(process.env.REACT_APP_BOOK_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data);
+      });
+
+    fetch(process.env.REACT_APP_SERVICE_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setService(data);
+      });
+  }, []);
+
+  const aboutData = { ...about };
+
   return (
     <main className="md:mx-6 m-auto max-w-[1280px] ">
       <Navbar />
@@ -107,14 +85,14 @@ function Home() {
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                src={aboutData.image_one}
               />
             </div>
             <div className="w-1/2 h-[90%] mt-10 p-1 md:p-4">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                src={aboutData.image_two}
               />
             </div>
           </div>
@@ -124,18 +102,7 @@ function Home() {
                 style={`${styles.header__text}`}
                 title="Driven to Learn More About Us? Learn it Here!"
               />
-              <p className="py-8">
-                Maecenas at magna pulvinar, pharetra neque nec, condimentum
-                mauris. Nullam sapien augue, auctor ac augue sed, fermentum
-                rhoncus nunc. Curabitur sit amet velit a lacus feugiat
-                vestibulum. Pellentesque habitant morbi tristique senectus netus
-                et malesuada fames a turpis. Proin ac nunc dictum, elementum
-                turpis nec, sagittis orci. Morbi auctor, leo non rutrum commodo,
-                enim urna convallis lorem, vel malesuada est turpis eget odio.
-                Integer nec iaculis nibh. Aenean hendrerit nibh ornare, tempor
-                ante et, bibendum ligula. Integer lobortis sodales tortor.
-                Vivamus congue lorem vitae ligula viverra hendrerit.
-              </p>
+              <p className="py-8">{aboutData.description}</p>
               <button
                 type="button"
                 className={`text-black hover:text-white border border-[${COLORS.primary}] hover:bg-[${COLORS.primary}] focus:ring-4 focus:outline-none focus:ring-[${COLORS.primary}] font-medium rounded-lg text-sm px-6 py-2.5 text-center mr-2 mb-2 dark:border-gray-300 dark:text-gray-700 dark:hover:text-white dark:hover:bg-[${COLORS.primary}] dark:focus:ring-gray-900`}
@@ -167,7 +134,7 @@ function Home() {
       </section>
       {/* events section */}
       <section className="min-h-100 m-0 md:m-6">
-        <Events />
+        <Events limit={3} />
       </section>
       {/* library books */}
       <section className="min-h-100 bg-white">
@@ -180,7 +147,7 @@ function Home() {
           </div>
           <div className="px-6 md:px-12">
             <CardsSlider
-              data={booksData}
+              data={books}
               containerHeight="25rem"
               slide={{
                 mdw: "15rem",
@@ -190,7 +157,13 @@ function Home() {
                 btnColor: COLORS.primary,
               }}
               slideImage={{ h: "12rem", w: "100%" }}
-              options={{ title: true, briefing: true, button: true }}
+              options={{
+                title: true,
+                genre: true,
+                author: true,
+                briefing: true,
+                button: true,
+              }}
             />
           </div>
         </div>

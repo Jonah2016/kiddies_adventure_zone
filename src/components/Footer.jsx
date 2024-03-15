@@ -1,15 +1,30 @@
-import React from "react";
-import {
-  GiBookshelf,
-  GiBabyfootPlayers,
-  GiTabletopPlayers,
-  GiBookPile,
-} from "react-icons/gi";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
-import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo1.jpeg";
 
 function Footer() {
+  const [service, setService] = useState({});
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_SERVICE_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setService(data);
+      });
+  }, []);
+
+  function renderFooterServices(data) {
+    const servData = data.map((item) => {
+      return (
+        <li key={item._id}>
+          <Link to={"/"}>{item.title}</Link>
+        </li>
+      );
+    });
+    return servData;
+  }
+
   return (
     <>
       <footer className="bg-gray-100 footer-area">
@@ -19,34 +34,34 @@ function Footer() {
               <div className="w-full">
                 <div className="items-end justify-between block mb-8 footer-logo-support md:flex">
                   <div className="flex items-end footer-logo">
-                    <a className="mt-8" href="index.html">
+                    <Link className="mt-8" to={"/"}>
                       <img
                         src={logo}
                         className="img-fluid block h-10 w-15"
                         alt="Logo"
                       />
-                    </a>
+                    </Link>
 
                     <ul className="flex mt-8 ml-8 footer-social">
                       <li>
-                        <a href="javascript:void(0)">
+                        <Link to={"/"}>
                           <i className="lni-facebook-filled"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="javascript:void(0)">
+                        <Link to={"/"}>
                           <i className="lni-twitter-original"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="javascript:void(0)">
+                        <Link to={"/"}>
                           <i className="lni-instagram-original"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="javascript:void(0)">
+                        <Link to={"/"}>
                           <i className="lni-linkedin-original"></i>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -59,31 +74,24 @@ function Footer() {
                   <h6 className="footer-title">Company</h6>
                   <ul>
                     <li>
-                      <a href="javascript:void(0)">About</a>
+                      <Link to={"/about"}>About</Link>
                     </li>
                     <li>
-                      <a href="javascript:void(0)">Contact</a>
+                      <Link to={"/events"}>Events</Link>
                     </li>
                     <li>
-                      <a href="javascript:void(0)">Career</a>
+                      <Link to={"/library"}>Library Catalog</Link>
+                    </li>
+                    <li>
+                      <Link to={"/"}>Contact</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
                 <div className="mb-8 footer-link">
-                  <h6 className="footer-title">Product & Services</h6>
-                  <ul>
-                    <li>
-                      <a href="javascript:void(0)">Products</a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Business</a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Developer</a>
-                    </li>
-                  </ul>
+                  <h6 className="footer-title">Our Services</h6>
+                  <ul>{service.length > 0 && renderFooterServices(service)}</ul>
                 </div>
               </div>
               <div className="w-full sm:w-5/12 md:w-1/3 lg:w-1/4">
@@ -91,13 +99,13 @@ function Footer() {
                   <h6 className="footer-title">Help & Suuport</h6>
                   <ul>
                     <li>
-                      <a href="javascript:void(0)">Support Center</a>
+                      <Link to={"/"}>Support Center</Link>
                     </li>
                     <li>
-                      <a href="javascript:void(0)">FAQ</a>
+                      <Link to={"/"}>FAQ</Link>
                     </li>
                     <li>
-                      <a href="javascript:void(0)">Terms & Conditions</a>
+                      <Link to={"/"}>Terms & Conditions</Link>
                     </li>
                   </ul>
                 </div>
@@ -136,14 +144,24 @@ function Footer() {
               <div className="w-full">
                 <div className="py-6 text-center">
                   <p className="">
-                    Template Crafted by
-                    <a
-                      className="text-[#f3701d] duration-300 hover:text-[#f36b1d]"
+                    Portfolio Project Crafted by
+                    <Link
+                      className="text-[#f3701d] duration-300 px-1 hover:text-[#f36b1d]"
                       rel="nofollow"
-                      href="https://tailwindtemplates.co"
+                      to="https://www.linkedin.com/in/jonah-e-93a6a2167"
+                      target="__blank"
                     >
                       Jonah
-                    </a>
+                    </Link>
+                    &
+                    <Link
+                      className="text-[#f3701d] duration-300 px-1 hover:text-[#f36b1d]"
+                      rel="nofollow"
+                      to="https://www.linkedin.com/in/stephen-amponsah"
+                      target="__blank"
+                    >
+                      Stephen
+                    </Link>
                   </p>
                 </div>
               </div>

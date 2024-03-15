@@ -4,6 +4,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 function CardsSlider(props) {
   const { data, containerHeight, slide, slideImage, options } = props;
+  const books = { ...data };
 
   const handleNextBtnClick = () => {
     const slidesContainer = document.querySelector(".slidesContainer");
@@ -16,60 +17,75 @@ function CardsSlider(props) {
     slidesContainer.scrollLeft -= slideWidth;
   };
 
+  function renderBooks(bookData) {
+    // Use the map function on the data array
+    const mappedData = bookData.map((item) => {
+      return (
+        <div
+          key={item._id}
+          className={`slide h-full w-[100%] md:w-[25%] sm:w-[25%] flex-shrink-0 snap-center rounded overflow-hidden`}
+        >
+          <div className="mx-3 mt-6 flex flex-col  rounded-lg sm:shrink-0 sm:grow sm:basis-0">
+            <div className={`h-[${slideImage.h}] w-[${slideImage.w}]`}>
+              <img
+                src={item.image}
+                loading="lazy"
+                className={`aspect-square rounded-t-lg h-full w-full object-cover`}
+                alt="Skyscrapers"
+              />
+            </div>
+            <div className="py-6 ">
+              {options.title && (
+                <h5
+                  className={`mb-3 text-xl h-auto md:h-12 font-medium leading-tight text-[${slide.titleColor}] dark:text-[${slide.titleColor}] `}
+                >
+                  <a
+                    href="#"
+                    className={`hover:underline hover:underline-offset-3 font-bold ${styles.clamp__2} text-[${slide.titleColor}] `}
+                  >
+                    {item.title}
+                  </a>
+                </h5>
+              )}
+              {options.author && (
+                <p
+                  className={`mb-2 font-light text-sm text-[${slide.bodyColor}] ${styles.clamp__2}  ${styles.clamp__3__sm} dark:text-[${slide.bodyColor}]`}
+                >
+                  By {item.author}
+                </p>
+              )}
+              {options.genre && (
+                <p
+                  className={`mb-4 font-light text-sm text-[${slide.bodyColor}] ${styles.clamp__2}  ${styles.clamp__3__sm} dark:text-[${slide.bodyColor}]`}
+                >
+                  {item.genre}
+                </p>
+              )}
+              {options.button && (
+                <a
+                  href="#"
+                  className={`pt-2 font-medium text-[1.15rem] flex items-center hover:underline hover:underline-offset-3 text-[${slide.btnColor}]`}
+                >
+                  Read more
+                  <span className="px-1">
+                    <AiOutlineArrowRight size={20} />
+                  </span>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    });
+    return mappedData;
+  }
+
   return (
     <div className="relative">
       <div
         className={`${styles.slides__container} slidesContainer h-[${containerHeight}] flex snap-x snap-mandatory overflow-hidden overflow-x-auto space-x-2 rounded scroll-smooth before:w-[45vw] before:shrink-0 after:w-[45vw] after:shrink-0 md:before:w-0 md:after:w-0`}
       >
-        {data.map((item) => (
-          <div
-            key={item.id}
-            className={`slide h-full w-[100%] md:w-[25%] sm:w-[25%] flex-shrink-0 snap-center rounded overflow-hidden`}
-          >
-            <div className="mx-3 mt-6 flex flex-col  rounded-lg sm:shrink-0 sm:grow sm:basis-0">
-              <div className={`h-[${slideImage.h}] w-[${slideImage.w}]`}>
-                <img
-                  src={item.image}
-                  loading="lazy"
-                  className={`aspect-square rounded-t-lg h-full w-full object-cover`}
-                  alt="Skyscrapers"
-                />
-              </div>
-              <div className="py-6 ">
-                {options.title && (
-                  <h5
-                    className={`mb-4 text-xl h-auto md:h-12 font-medium leading-tight text-[${slide.titleColor}] dark:text-[${slide.titleColor}] `}
-                  >
-                    <a
-                      href="#"
-                      className={`hover:underline hover:underline-offset-3 font-bold ${styles.clamp__2} text-[${slide.titleColor}] `}
-                    >
-                      {item.title}
-                    </a>
-                  </h5>
-                )}
-                {options.briefing && (
-                  <p
-                    className={`mb-4 font-light text-sm text-[${slide.bodyColor}] ${styles.clamp__2}  ${styles.clamp__3__sm} dark:text-[${slide.bodyColor}]`}
-                  >
-                    {item.briefing}
-                  </p>
-                )}
-                {options.button && (
-                  <a
-                    href="#"
-                    className={`pt-2 font-medium text-[1.15rem] flex items-center hover:underline hover:underline-offset-3 text-[${slide.btnColor}]`}
-                  >
-                    Read more
-                    <span className="px-1">
-                      <AiOutlineArrowRight size={20} />
-                    </span>
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
+        {data.length > 0 && renderBooks(data)}
       </div>
 
       <div className="absolute top-0 -left-4 h-full items-center flex">

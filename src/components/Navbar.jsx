@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo1.jpeg";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 

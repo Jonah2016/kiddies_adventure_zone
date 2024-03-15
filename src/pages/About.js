@@ -17,22 +17,6 @@ import Title from "../components/Title";
 import RegisterBanner from "../components/RegisterBanner";
 import Footer from "../components/Footer";
 
-const heroProperties = {
-  banner:
-    "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442",
-  mainTitle: {
-    text: "About Us",
-    color: "#ffff",
-    show: true,
-  },
-  subTitle: {
-    text: "Maecenas at magna pulvinar, pharetra neque nec, condimentum mauris. Nullam sapien augue, auctor ac augue sed, fermentum rhoncus nunc. ",
-    color: "#ffff",
-    show: true,
-  },
-  button: { show: false, url: "#", text: "Read more" },
-};
-
 const valuesData = [
   {
     maintext: "Respect",
@@ -112,7 +96,7 @@ function About() {
   const [about, setAbout] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/about/")
+    fetch(process.env.REACT_APP_ABOUT_URL)
       .then((response) => response.json())
       .then((data) => {
         setAbout(data);
@@ -120,6 +104,22 @@ function About() {
   }, []);
 
   const aboutData = { ...about };
+
+  const heroProperties = {
+    banner:
+      "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442",
+    mainTitle: {
+      text: "About Us",
+      color: "#ffff",
+      show: true,
+    },
+    subTitle: {
+      text: aboutData.briefing,
+      color: "#ffff",
+      show: true,
+    },
+    button: { show: false, url: "#", text: "Read more" },
+  };
 
   return (
     <main className="md:m-6 m-auto max-w-[1280px] ">

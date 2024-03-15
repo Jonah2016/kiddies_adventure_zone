@@ -25,10 +25,10 @@ function Hero(props) {
               Find books, media, databases, e-journals and digital resources.
             </p>
             <Link
-              to={"/"}
+              to={"/library"}
               className="text-[1.2rem] font-extralight text-[#f3701d] flex items-center hover:underline underline-offset-4"
             >
-              Read more
+              Find Books
               <span className="px-1">
                 <AiOutlineArrowRight size={20} />
               </span>
