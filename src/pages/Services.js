@@ -72,7 +72,7 @@ function Services() {
             {!loading ? (
               data.length > 0 && renderService(data)
             ) : (
-              <Loading type={LOAD_5} />
+              <Loading repeatNumber={3} type={LOAD_5} />
             )}
           </div>
         </section>

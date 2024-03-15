@@ -201,7 +201,7 @@ function About() {
             </div>
           </div>
         ) : (
-          <Loading type={LOAD_1} />
+          <Loading repeatNumber={1} type={LOAD_1} />
         )}
       </section>
 

@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
-import BookCard from "../components/BookCard";
 import HeaderHeroShort from "../components/HeaderHeroShort";
+import Footer from "../components/Footer";
+import BookCard from "../components/BookCard";
 import BookAdCard from "../components/BookAdCard";
 import RegisterBanner from "../components/RegisterBanner";
-import Footer from "../components/Footer";
 import FloatSearch from "../components/FloatSearch";
+import useFetchData from "../middleware/hooks";
+import Loading from "../components/Loading";
+
+const { LOAD_6 } = require("../constants/index.js");
 
 const heroProperties = {
   banner:
@@ -24,19 +28,11 @@ const heroProperties = {
 };
 
 function Library() {
-  const renderBooks = (books) => {
-    return books.map((book) => <BookCard props={book} />);
+  const { data: books, loading } = useFetchData(process.env.REACT_APP_BOOK_URL);
+
+  const renderBooks = (allBooks) => {
+    return allBooks.map((book) => <BookCard props={book} />);
   };
-
-  const [books, setBooks] = useState({});
-
-  useEffect(() => {
-    fetch(process.env.REACT_APP_BOOK_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setBooks(data);
-      });
-  }, []);
 
   return (
     <main className="md:m-6 m-auto max-w-[1280px] ">
@@ -52,7 +48,11 @@ function Library() {
       </section>
 
       <section className="row mb-12">
-        {books.length > 0 && renderBooks(books)}
+        {!loading ? (
+          books.length > 0 && renderBooks(books)
+        ) : (
+          <Loading repeatNumber={4} type={LOAD_6} />
+        )}
       </section>
 
       <section className="mb-12 min-h-100">

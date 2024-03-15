@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import useFetchData from "../middleware/hooks";
 import Loading from "../components/Loading";
 
-const { LOAD_1, LOAD_4, LOAD_6 } = require("../constants/index.js");
+const { LOAD_1, LOAD_4, LOAD_6, LOAD_7 } = require("../constants/index.js");
 
 const servicesData = [
   {
@@ -103,7 +103,7 @@ function Home() {
           </div>
         </section>
       ) : (
-        <Loading type={LOAD_1} />
+        <Loading repeatNumber={1} type={LOAD_1} />
       )}
       {/* features and services */}
       <section className="min-h-100 m-0 md:my-6">
@@ -132,19 +132,22 @@ function Home() {
           </section>
         )
       ) : (
-        <Loading type={LOAD_4} />
+        <section className="min-h-100 m-0 md:m-6">
+          <Loading repeatNumber={3} type={LOAD_4} />
+        </section>
       )}
       {/* library books */}
-      {!bookLoading ? (
-        <section className="min-h-100 bg-white">
-          <div className="container mx-auto h-[36rem] md:h-[40rem]">
-            <div className="pt-12 pb-6 px-12">
-              <Title
-                style={`${styles.header__text} `}
-                title="Explore Our Books"
-              />
-            </div>
-            <div className="px-6 md:px-12">
+
+      <section className="min-h-100 bg-white">
+        <div className="container mx-auto h-[36rem] md:h-[40rem]">
+          <div className="pt-12 pb-6 px-12">
+            <Title
+              style={`${styles.header__text} `}
+              title="Explore Our Books"
+            />
+          </div>
+          <div className="px-6 md:px-12">
+            {!bookLoading ? (
               <CardsSlider
                 data={bookData}
                 containerHeight="25rem"
@@ -164,12 +167,13 @@ function Home() {
                   button: true,
                 }}
               />
-            </div>
+            ) : (
+              <Loading repeatNumber={6} type={LOAD_7} />
+            )}
           </div>
-        </section>
-      ) : (
-        <Loading type={LOAD_6} />
-      )}
+        </div>
+      </section>
+
       {/* register banner */}
       <section className="min-h-100">
         <RegisterBanner />

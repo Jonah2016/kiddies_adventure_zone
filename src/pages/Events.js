@@ -11,7 +11,7 @@ import { COLORS } from "../assets/theme/theme";
 import useFetchData from "../middleware/hooks";
 import Loading from "../components/Loading";
 
-const { LOAD_4 } = require("../constants/index.js");
+const { LOAD_7 } = require("../constants/index.js");
 
 const heroProperties = {
   banner:
@@ -58,8 +58,8 @@ function Events() {
               title="Explore Our Books"
             />
           </div>
-          {!loading ? (
-            <div className="px-6 md:px-12">
+          <div className="px-6 md:px-12">
+            {!loading ? (
               <CardsSlider
                 data={data}
                 containerHeight="25rem"
@@ -79,10 +79,10 @@ function Events() {
                   button: true,
                 }}
               />
-            </div>
-          ) : (
-            <Loading type={LOAD_4} />
-          )}
+            ) : (
+              <Loading repeatNumber={6} type={LOAD_7} />
+            )}
+          </div>
         </div>
       </section>
 

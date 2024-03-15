@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 
+// this function hook takes the url of the aoi and returns
+// @Returns an object of {data, loading, error }
+// Where data => object, loading => boolean, error => any type
+
 function useFetchData(url) {
   const [data, setData] = useState({});
   const [error, setError] = useState(null);
@@ -14,7 +18,9 @@ function useFetchData(url) {
       } catch (error) {
         setError(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 50000); // Set timeout before setting loading to false
       }
     };
 
