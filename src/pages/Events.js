@@ -14,7 +14,7 @@ const heroProperties = {
     show: true,
   },
   subTitle: {
-    text: "Browse through several kids' adventurous events, and also book us for your next party..",
+    text: "Browse through several kids' adventurous events, and also book us for your next party.",
     color: "#ffff",
     show: true,
   },
