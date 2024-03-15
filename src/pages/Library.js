@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import styles from "../assets/css/custom.module.css";
 import BookCard from "../components/BookCard";
 import HeaderHeroShort from "../components/HeaderHeroShort";
 import BookAdCard from "../components/BookAdCard";
 import RegisterBanner from "../components/RegisterBanner";
 import Footer from "../components/Footer";
+import FloatSearch from "../components/FloatSearch";
 
 const heroProperties = {
   banner:
@@ -46,6 +46,7 @@ function Library() {
       </section>
 
       <section className="row mb-12">
+        <FloatSearch />
         {books.length > 0 && renderBooks(books)}
       </section>
 

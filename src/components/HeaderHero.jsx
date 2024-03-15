@@ -1,7 +1,4 @@
 import React from "react";
-import styles from "../assets/css/custom.module.css";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import Title from "./Title";
 import { Link } from "react-router-dom";
 
 function HeaderHero(props) {

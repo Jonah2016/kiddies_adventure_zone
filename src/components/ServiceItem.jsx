@@ -3,10 +3,10 @@ import { COLORS } from "../assets/theme/theme";
 import styles from "../assets/css/custom.module.css";
 
 function ServiceItem(props) {
-  const { title, gist, icon } = props.data;
+  const { id, title, gist, icon } = props.data;
 
   return (
-    <div className="mb-12 md:mb-0">
+    <div className="mb-12 md:mb-0" key={id}>
       <div
         className={`mb-6 inline-block rounded-full text-[${COLORS.primary}] bg-[#eae7e4] p-8 text-primary`}
       >

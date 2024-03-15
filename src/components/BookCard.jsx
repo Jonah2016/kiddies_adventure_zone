@@ -2,21 +2,11 @@ import React from "react";
 import "./BookCard.css";
 
 function BookCard({ props }) {
-  const {
-    _id,
-    title,
-    category,
-    year_published,
-    genre,
-    author,
-    image,
-    url,
-    award_status,
-  } = props;
+  const { _id, title, category, year_published, author, image } = props;
 
   return (
-    <div className="md:w-1/2 w-full p-3">
-      <div className="books" key={_id}>
+    <div className="md:w-1/2 w-full p-3" key={_id}>
+      <div className="books">
         <div>
           <img src={image} alt={title} className="book-img" />
         </div>

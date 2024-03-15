@@ -4,7 +4,7 @@ import { COLORS } from "../assets/theme/theme";
 import HomeHero from "../components/HomeHero";
 import Navbar from "../components/Navbar";
 import Title from "../components/Title";
-import Events from "../components/Events";
+import Event from "../components/Event";
 import {
   GiBookshelf,
   GiBabyfootPlayers,
@@ -47,7 +47,7 @@ const heroImg =
   "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442";
 
 function Home() {
-  const [service, setService] = useState({});
+  // const [service, setService] = useState({});
   const [books, setBooks] = useState({});
   const [about, setAbout] = useState();
 
@@ -64,11 +64,11 @@ function Home() {
         setBooks(data);
       });
 
-    fetch(process.env.REACT_APP_SERVICE_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setService(data);
-      });
+    // fetch(process.env.REACT_APP_SERVICE_URL)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setService(data);
+    //   });
   }, []);
 
   const aboutData = { ...about };
@@ -125,7 +125,7 @@ function Home() {
               <div className="grid gap-x-6 md:grid-cols-4 lg:gap-x-12 ">
                 {/* services */}
                 {servicesData.map((service) => (
-                  <ServiceItem data={service} />
+                  <ServiceItem key={service.id} data={service} />
                 ))}
               </div>
             </div>
@@ -134,7 +134,7 @@ function Home() {
       </section>
       {/* events section */}
       <section className="min-h-100 m-0 md:m-6">
-        <Events limit={3} />
+        <Event limit={3} />
       </section>
       {/* library books */}
       <section className="min-h-100 bg-white">

@@ -58,7 +58,7 @@ function Hero(props) {
         </div>
         {/* card 3, dates */}
         <div className="basis-12/12 h-48 bg-[#e93a27] text-center">
-          <div class="px-4 py-12 transition duration-500 hover:scale-110">
+          <div className="px-4 py-12 transition duration-500 hover:scale-110">
             <h5 className="text-white text-md pb-5">
               The library is opened from
             </h5>

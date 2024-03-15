@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../assets/css/custom.module.css";
 import "./BookAdCard.css";
 
 function BookAdCard() {

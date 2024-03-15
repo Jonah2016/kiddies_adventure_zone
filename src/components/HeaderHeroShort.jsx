@@ -1,7 +1,4 @@
 import React from "react";
-import styles from "../assets/css/custom.module.css";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import Title from "./Title";
 import { Link } from "react-router-dom";
 
 function HeaderHeroShort(props) {
@@ -9,9 +6,6 @@ function HeaderHeroShort(props) {
   const heroTitle = mainTitle.text;
   const showMainTitle = mainTitle.show;
   const mainTitleColor = mainTitle.color;
-  const heroSubTitle = subTitle.text;
-  const showSubTitle = subTitle.show;
-  const subTitleColor = subTitle.color;
   const btnUrl = button.url;
   const btnText = button.text;
   const showBtn = button.show;

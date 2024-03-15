@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../assets/css/custom.module.css";
-import Title from "../components/Title";
+import Title from "./Title";
 import NormalCard from "./NormalCard";
 
 function Events(limit) {
@@ -14,29 +14,9 @@ function Events(limit) {
       });
   }, []);
 
-  // const eventsData = [
-  //   {
-  //     id: 1,
-  //     title: "This is a wider card with supporting text below as a natural",
-  //     briefing:
-  //       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "This is a wider card with supporting text below as a natural",
-  //     briefing:
-  //       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "This is a wider card with supporting text below as a natural",
-  //     briefing:
-  //       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-  //   },
-  // ];
   return (
     <>
-      <div className="p-4 md:p-6">
+      <div className="p-4 md:p-6" key={Math.random()}>
         <div className="p-4">
           <Title style={`${styles.header__text} `} title="News and Events" />
         </div>
