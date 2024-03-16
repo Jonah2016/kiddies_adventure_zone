@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import useFetchData from "../middleware/hooks";
 import Loading from "../components/Loading";
 
-const { LOAD_1, LOAD_4, LOAD_7 } = require("../constants/index.js");
+const { LOAD_8, LOAD_4, LOAD_7 } = require("../constants/index.js");
 
 const servicesData = [
   {
@@ -103,7 +103,7 @@ function Home() {
           </div>
         </section>
       ) : (
-        <Loading repeatNumber={1} type={LOAD_1} />
+        <Loading repeatNumber={1} type={LOAD_8} />
       )}
       {/* features and services */}
       <section className="min-h-100 m-0 md:my-6">

@@ -30,7 +30,9 @@ const heroProperties = {
 };
 
 function Events() {
-  const { data, loading } = useFetchData(process.env.REACT_APP_SERVICE_URL);
+  const { data: bookData, loading: bookLoading } = useFetchData(
+    process.env.REACT_APP_BOOK_URL
+  );
 
   return (
     <main className="md:m-6 m-auto max-w-[1280px] ">
@@ -59,9 +61,9 @@ function Events() {
             />
           </div>
           <div className="px-6 md:px-12">
-            {!loading ? (
+            {!bookLoading ? (
               <CardsSlider
-                data={data}
+                data={bookData}
                 containerHeight="25rem"
                 slide={{
                   mdw: "15rem",

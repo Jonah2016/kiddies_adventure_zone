@@ -126,7 +126,7 @@
 }
 
 /* ------------------- NormalCardTwo ------------------ */
-.card__img {
+.pld__card__img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -135,14 +135,14 @@
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-.card__info-hover {
+.pld__card__info-hover {
   position: absolute;
   padding: 16px;
   width: 100%;
   opacity: 0;
   top: 0;
 }
-.card__img--hover {
+.pld__card__img--hover {
   transition: 0.2s all ease-out;
   background-size: cover;
   background-position: center;
@@ -154,14 +154,14 @@
   border-top-right-radius: 12px;
   top: 0;
 }
-.card {
+.pld__card {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
 }
-.card__info {
+.pld__card__info {
   z-index: 2;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -169,10 +169,10 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .card__img--hover {
+  .pld__card__img--hover {
     height: 16rem;
   }
-  .card__img {
+  .pld__card__img {
     height: 16rem;
   }
 }

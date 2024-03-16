@@ -60,7 +60,7 @@ function Services() {
       <HeaderHero properties={heroProperties} />
 
       <div className="container my-20 mx-auto md:px-6">
-        <section className="mb-32 text-center">
+        <section className="mb-12 text-center">
           <h2 className="mb-6 text-3xl font-bold">Why is it so great?</h2>
           <p className="mb-16 lg:w-2/3 w-100 lg:mx-auto mx-4">
             Unleash the Adventure! Kiddies Adventure Zone offers a safe and
