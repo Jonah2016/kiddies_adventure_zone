@@ -47,6 +47,9 @@ function Library() {
 
       <section className="row mb-12">
         <FloatSearch />
+      </section>
+
+      <section className="row mb-12">
         {books.length > 0 && renderBooks(books)}
       </section>
 
