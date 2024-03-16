@@ -2,6 +2,7 @@ import React from "react";
 import { COLORS } from "../assets/theme/theme";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import styles from "../assets/css/custom.module.css";
 
 function NormalCard({ data }) {
   return (
@@ -23,12 +24,15 @@ function NormalCard({ data }) {
           >
             <Link
               to={"/"}
-              className={`hover:underline hover:underline-offset-3 text-[${COLORS.primary}]`}
+              title={data.title}
+              className={`hover:underline hover:underline-offset-3 text-[${COLORS.primary}] ${styles.clamp__1}  ${styles.clamp__3__sm}`}
             >
               {data.title}
             </Link>
           </h5>
-          <p className="mb-4 font-extralight text-md text-neutral-600 dark:text-neutral-200">
+          <p
+            className={`mb-4 font-extralight text-md text-neutral-600 dark:text-neutral-200 ${styles.clamp__3}  ${styles.clamp__2__sm} `}
+          >
             {data.briefing}
           </p>
           <Link
