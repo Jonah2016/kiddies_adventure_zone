@@ -75,8 +75,8 @@ function Loading({ type, repeatNumber }) {
             </div>
             <div className="pld__card__info">
               <span className="pld__card__category stripe_sm"></span>
-              <h3 className="stripe_md my-2"></h3>
-              <h4 className="pld__card__desc stripe_lg"></h4>
+              <div className="stripe_md my-2"></div>
+              <div className="pld__card__desc stripe_lg"></div>
               <div className="my-2 stripe_sm"></div>
               <span className="pld__card__by stripe_md"></span>
             </div>

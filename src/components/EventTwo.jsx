@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "../assets/css/custom.module.css";
 import Title from "./Title";
 import NormalCardTwo from "./NormalCardTwo";
