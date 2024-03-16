@@ -31,7 +31,7 @@ const heroProperties = {
 
 function Events() {
   const { data: bookData, loading: bookLoading } = useFetchData(
-    process.env.REACT_APP_BOOK_URL
+    process.env.REACT_APP_CATALOG_URL
   );
 
   return (

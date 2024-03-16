@@ -55,7 +55,7 @@ function Home() {
     process.env.REACT_APP_ABOUT_URL
   );
   const { data: bookData, loading: bookLoading } = useFetchData(
-    process.env.REACT_APP_BOOK_URL
+    process.env.REACT_APP_CATALOG_URL
   );
   const { data: eventData, loading: eventLoading } = useFetchData(
     process.env.REACT_APP_EVENT_URL

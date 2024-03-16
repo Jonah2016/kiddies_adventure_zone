@@ -28,7 +28,9 @@ const heroProperties = {
 };
 
 function Library() {
-  const { data: books, loading } = useFetchData(process.env.REACT_APP_BOOK_URL);
+  const { data: books, loading } = useFetchData(
+    process.env.REACT_APP_CATALOG_URL
+  );
 
   const renderBooks = (allBooks) => {
     return allBooks.map((book) => <BookCard props={book} />);
