@@ -13,23 +13,23 @@ import Loading from "../components/Loading";
 
 const { LOAD_7 } = require("../constants/index.js");
 
-const heroProperties = {
-  banner:
-    "https://images.unsplash.com/photo-1467307983825-619715426c70?q=80&w=2577&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  mainTitle: {
-    text: "Kiddies Events",
-    color: "#f8f8f8",
-    show: true,
-  },
-  subTitle: {
-    text: "Browse through several kids' adventurous events, and also book us for your next party.",
-    color: "#ffff",
-    show: true,
-  },
-  button: { show: false, url: "#", text: "Read more" },
-};
-
 function Events() {
+  const heroProperties = {
+    banner:
+      "https://images.unsplash.com/photo-1467307983825-619715426c70?q=80&w=2577&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    mainTitle: {
+      text: "Kiddies Events",
+      color: "#f8f8f8",
+      show: true,
+    },
+    subTitle: {
+      text: "Browse through several kids' adventurous events, and also book us for your next party.",
+      color: "#ffff",
+      show: true,
+    },
+    button: { show: false, url: "#", text: "Read more" },
+  };
+
   const { data: bookData, loading: bookLoading } = useFetchData(
     process.env.REACT_APP_CATALOG_URL
   );

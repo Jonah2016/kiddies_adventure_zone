@@ -11,23 +11,23 @@ import Loading from "../components/Loading";
 
 const { LOAD_6 } = require("../constants/index.js");
 
-const heroProperties = {
-  banner:
-    "https://scientia.themerex.net/wp-content/uploads/2018/01/bg_study-copyright.jpg?id=332",
-  mainTitle: {
-    text: "Books Catalog",
-    color: "#ffff",
-    show: true,
-  },
-  subTitle: {
-    text: "More than just fun, it's learning in action! Kiddies Adventure Zone provides a stimulating environment where children explore, solve problems, and socialize.",
-    color: "#ffff",
-    show: true,
-  },
-  button: { show: false, url: "#", text: "Read more" },
-};
-
 function Library() {
+  const heroProperties = {
+    banner:
+      "https://scientia.themerex.net/wp-content/uploads/2018/01/bg_study-copyright.jpg?id=332",
+    mainTitle: {
+      text: "Books Catalog",
+      color: "#ffff",
+      show: true,
+    },
+    subTitle: {
+      text: "More than just fun, it's learning in action! Kiddies Adventure Zone provides a stimulating environment where children explore, solve problems, and socialize.",
+      color: "#ffff",
+      show: true,
+    },
+    button: { show: false, url: "#", text: "Read more" },
+  };
+
   const { data: books, loading } = useFetchData(
     process.env.REACT_APP_CATALOG_URL
   );

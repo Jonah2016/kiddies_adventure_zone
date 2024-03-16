@@ -21,82 +21,82 @@ import Loading from "../components/Loading";
 
 const { LOAD_1 } = require("../constants/index.js");
 
-const valuesData = [
-  {
-    maintext: "Respect",
-    subtext:
-      "We treat clients, staff, volunteers and our community with dignity, courtesy, and consideration.",
-    icon: (
-      <GiShakingHands
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-  {
-    maintext: "Commitment",
-    subtext:
-      "We are committed to ensuring excellence and partnering effectively with families, organizations, and communities.",
-    icon: (
-      <GiSpockHand
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-  {
-    maintext: "Accountability",
-    subtext:
-      "We exercise honesty and responsibility in our actions, decisions, and use of resources.",
-    icon: (
-      <GiTakeMyMoney
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-  {
-    maintext: "Collaboration",
-    subtext:
-      "We strive to work collaboratively with individuals, families, organizations, and communities.",
-    icon: (
-      <GiTeamUpgrade
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-  {
-    maintext: "Teamwork",
-    subtext:
-      "Our mission is successfully carried out through staff, volunteers and partners sharing ideas talents and resources.",
-    icon: (
-      <GiTeamIdea
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-  {
-    maintext: "Safety",
-    subtext:
-      "We treat clients, staff, volunteers and our community with dignity, courtesy, and consideration.",
-    icon: (
-      <GiMedicalPack
-        className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
-        size={80}
-      />
-    ),
-    show: true,
-  },
-];
-
 function About() {
+  const valuesData = [
+    {
+      maintext: "Respect",
+      subtext:
+        "We treat clients, staff, volunteers and our community with dignity, courtesy, and consideration.",
+      icon: (
+        <GiShakingHands
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+    {
+      maintext: "Commitment",
+      subtext:
+        "We are committed to ensuring excellence and partnering effectively with families, organizations, and communities.",
+      icon: (
+        <GiSpockHand
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+    {
+      maintext: "Accountability",
+      subtext:
+        "We exercise honesty and responsibility in our actions, decisions, and use of resources.",
+      icon: (
+        <GiTakeMyMoney
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+    {
+      maintext: "Collaboration",
+      subtext:
+        "We strive to work collaboratively with individuals, families, organizations, and communities.",
+      icon: (
+        <GiTeamUpgrade
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+    {
+      maintext: "Teamwork",
+      subtext:
+        "Our mission is successfully carried out through staff, volunteers and partners sharing ideas talents and resources.",
+      icon: (
+        <GiTeamIdea
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+    {
+      maintext: "Safety",
+      subtext:
+        "We treat clients, staff, volunteers and our community with dignity, courtesy, and consideration.",
+      icon: (
+        <GiMedicalPack
+          className={`absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl ${styles.primary__text} bg-opacity-20 duration-300 group-hover:rotate-45`}
+          size={80}
+        />
+      ),
+      show: true,
+    },
+  ];
+
   const { data: aboutData, loading } = useFetchData(
     process.env.REACT_APP_ABOUT_URL
   );

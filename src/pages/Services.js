@@ -11,22 +11,6 @@ import Loading from "../components/Loading";
 
 const { LOAD_5 } = require("../constants/index.js");
 
-const heroProperties = {
-  banner:
-    "https://scientia.themerex.net/wp-content/uploads/2018/01/bg_study-copyright.jpg?id=332",
-  mainTitle: {
-    text: "Services",
-    color: "#ffff",
-    show: true,
-  },
-  subTitle: {
-    text: "More than just fun, it's learning in action! Kiddies Adventure Zone provides a stimulating environment where children explore, solve problems, and socialize.",
-    color: "#ffff",
-    show: true,
-  },
-  button: { show: false, url: "#", text: "Read more" },
-};
-
 function renderService(services) {
   const serviceItems = services.map((item) => (
     <div className="mb-14 lg:mb-20" key={item._id}>
@@ -52,6 +36,22 @@ function renderService(services) {
 }
 
 function Services() {
+  const heroProperties = {
+    banner:
+      "https://scientia.themerex.net/wp-content/uploads/2018/01/bg_study-copyright.jpg?id=332",
+    mainTitle: {
+      text: "Services",
+      color: "#ffff",
+      show: true,
+    },
+    subTitle: {
+      text: "More than just fun, it's learning in action! Kiddies Adventure Zone provides a stimulating environment where children explore, solve problems, and socialize.",
+      color: "#ffff",
+      show: true,
+    },
+    button: { show: false, url: "#", text: "Read more" },
+  };
+
   const { data, loading } = useFetchData(process.env.REACT_APP_SERVICE_URL);
 
   return (

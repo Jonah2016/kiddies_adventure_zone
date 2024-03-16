@@ -20,37 +20,37 @@ import Loading from "../components/Loading";
 
 const { LOAD_8, LOAD_4, LOAD_7 } = require("../constants/index.js");
 
-const servicesData = [
-  {
-    id: 1,
-    title: "Library Services",
-    gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius. Reiciendis optio minus mollitia rerum labore facilis inventore voluptatem ad, quae quia sint. Ullam.",
-    icon: <GiBookshelf size={50} />,
-  },
-  {
-    id: 2,
-    title: "Space For Kid's Events",
-    gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius. Reiciendis optio minus mollitia rerum labore facilis inventore voluptatem ad, quae quia sint. Ullam.",
-    icon: <GiBabyfootPlayers size={50} />,
-  },
-  {
-    id: 3,
-    title: "Recreational Activities",
-    gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius. Reiciendis optio minus mollitia rerum labore facilis inventore voluptatem ad, quae quia sint. Ullam.",
-    icon: <GiTabletopPlayers size={50} />,
-  },
-  {
-    id: 4,
-    title: "Educational Activities",
-    gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius. Reiciendis optio minus mollitia rerum labore facilis inventore voluptatem ad, quae quia sint. Ullam.",
-    icon: <GiBookPile size={50} />,
-  },
-];
-
-const heroImg =
-  "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442";
-
 function Home() {
+  const servicesData = [
+    {
+      id: 1,
+      title: "Library Services",
+      gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius quae quia sint. Ullam.",
+      icon: <GiBookshelf size={50} />,
+    },
+    {
+      id: 2,
+      title: "Space For Kid's Events",
+      gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius quae quia sint. Ullam.",
+      icon: <GiBabyfootPlayers size={50} />,
+    },
+    {
+      id: 3,
+      title: "Recreational Activities",
+      gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius quae quia sint. Ullam.",
+      icon: <GiTabletopPlayers size={50} />,
+    },
+    {
+      id: 4,
+      title: "Educational Activities",
+      gist: "Laudantium totam quas cumque pariatur at doloremque hic quos quia eius quae quia sint. Ullam.",
+      icon: <GiBookPile size={50} />,
+    },
+  ];
+
+  const heroImg =
+    "https://scientia.themerex.net/wp-content/uploads/2019/05/Depositphotos_155947488_xl-2015_2-copyright.jpg?id=1442";
+
   const { data: aboutData, loading: aboutLoading } = useFetchData(
     process.env.REACT_APP_ABOUT_URL
   );
