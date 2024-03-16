@@ -12,7 +12,7 @@ const {
 } = require("../constants/index.js");
 
 function Loading({ type, repeatNumber }) {
-  // NormalCard
+  // loadFour = NormalCard
   function loadFour() {
     const elements = [];
 
@@ -37,7 +37,29 @@ function Loading({ type, repeatNumber }) {
     return elements;
   }
 
-  // BookCard
+  // loadFive = Services Cards
+  function loadFive() {
+    const elements = [];
+
+    for (let i = 0; i < repeatNumber; i++) {
+      elements.push(
+        <div className="mb-14 lg:mb-20" key={i}>
+          <div className="block m-5 h-full rounded-lg bg-white ">
+            <div className="flex justify-center">
+              <div className="-mt-8 inline-block rounded-full p-10 shadow-md stripe"></div>
+            </div>
+            <div className="p-6">
+              <h5 className="mb-4 stripe_md"></h5>
+              <p className="stripe_lg"></p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return elements;
+  }
+
+  // loadSix = BookCard
   function loadSix(repeatNumber) {
     const elements = []; // Array to store JSX elements
 
@@ -63,7 +85,7 @@ function Loading({ type, repeatNumber }) {
     return elements;
   }
 
-  // Book Slider Card
+  // loadSeven = Book Slider Card
   function loadSeven() {
     const elements = [];
 
@@ -102,15 +124,20 @@ function Loading({ type, repeatNumber }) {
   return (
     <>
       {type === LOAD_1 && <div>Loading.........1</div>}
-      {type === LOAD_2 && <div>{loadFour(repeatNumber)}</div>}
+
+      {type === LOAD_2 && <>{loadFour(repeatNumber)}</>}
+
       {type === LOAD_3 && <div>Loading.........3</div>}
+
       {type === LOAD_4 && (
         <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
           {loadFour(repeatNumber)}
         </div>
       )}
-      {type === LOAD_5 && <div>Loading.........5</div>}
+      {type === LOAD_5 && <>{loadFive(repeatNumber)}</>}
+
       {type === LOAD_6 && <>{loadSix(repeatNumber)}</>}
+
       {type === LOAD_7 && (
         <div
           className={`${styles.slides__container} slidesContainer h-[25rem] flex snap-x snap-mandatory overflow-hidden overflow-x-auto space-x-2 rounded scroll-smooth before:w-[45vw] before:shrink-0 after:w-[45vw] after:shrink-0 md:before:w-0 md:after:w-0`}
