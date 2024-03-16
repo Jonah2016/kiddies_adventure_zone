@@ -42,8 +42,17 @@ function Library() {
       </section>
 
       <section className="row mb-12">
-        <FloatSearch />
-        {books.length > 0 && renderBooks(books)}
+        <div className="flex justify-center mx-auto items-center">
+          <FloatSearch />
+        </div>
+      </section>
+
+      <section className="row mb-12">
+        {!loading ? (
+          books.length > 0 && renderBooks(books)
+        ) : (
+          <Loading repeatNumber={4} type={LOAD_6} />
+        )}
       </section>
 
       <section className="mb-12 min-h-100">
