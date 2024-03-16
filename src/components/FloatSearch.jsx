@@ -3,7 +3,7 @@ import "./FloatSearch.css";
 
 function FloatSearch() {
   return (
-    <div>
+    <>
       <div className="darksoul-search-bar">
         <img
           className="search-icon"
@@ -15,12 +15,12 @@ function FloatSearch() {
         <input
           type="text"
           name="search"
-          placeholder="Search DarkSoul or type a URL"
+          placeholder="Search for book by name, category, or author"
           className="darksoul-search-input"
           autoComplete="on"
         />
       </div>
-    </div>
+    </>
   );
 }
 

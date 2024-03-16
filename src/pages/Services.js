@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import styles from "../assets/css/custom.module.css";
 import HeaderHero from "../components/HeaderHero";
 import RegisterBanner from "../components/RegisterBanner";
 import Footer from "../components/Footer";
+import useFetchData from "../middleware/hooks";
 
 import SvgIcon from "../components/SvgIcon";
+import Loading from "../components/Loading";
+
+const { LOAD_5 } = require("../constants/index.js");
 
 const heroProperties = {
   banner:
@@ -48,15 +52,7 @@ function renderService(services) {
 }
 
 function Services() {
-  const [service, setService] = useState({});
-
-  useEffect(() => {
-    fetch(process.env.REACT_APP_SERVICE_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setService(data);
-      });
-  }, []);
+  const { data, loading } = useFetchData(process.env.REACT_APP_SERVICE_URL);
 
   return (
     <main className="md:m-6 m-auto max-w-[1280px]">
@@ -73,7 +69,11 @@ function Services() {
           </p>
 
           <div className="grid lg:grid-cols-3 lg:gap-x-12">
-            {service.length > 0 && renderService(service)}
+            {!loading ? (
+              data.length > 0 && renderService(data)
+            ) : (
+              <Loading repeatNumber={3} type={LOAD_5} />
+            )}
           </div>
         </section>
       </div>

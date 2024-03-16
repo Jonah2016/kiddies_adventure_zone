@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import styles from "../assets/css/custom.module.css";
 import HeaderHero from "../components/HeaderHero";
@@ -16,6 +16,10 @@ import IconCard from "../components/IconCard";
 import Title from "../components/Title";
 import RegisterBanner from "../components/RegisterBanner";
 import Footer from "../components/Footer";
+import useFetchData from "../middleware/hooks";
+import Loading from "../components/Loading";
+
+const { LOAD_1 } = require("../constants/index.js");
 
 const valuesData = [
   {
@@ -93,17 +97,9 @@ const valuesData = [
 ];
 
 function About() {
-  const [about, setAbout] = useState();
-
-  useEffect(() => {
-    fetch(process.env.REACT_APP_ABOUT_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setAbout(data);
-      });
-  }, []);
-
-  const aboutData = { ...about };
+  const { data: aboutData, loading } = useFetchData(
+    process.env.REACT_APP_ABOUT_URL
+  );
 
   const heroProperties = {
     banner:
@@ -127,82 +123,86 @@ function About() {
       <HeaderHero properties={heroProperties} />
 
       <section className="bg-[#ffff] pt-20 pb-0 lg:pt-[120px] lg:pb-11">
-        <div className="lg:container mx-auto ">
-          <div className="wow fadeInUp bg-white" data-wow-delay=".2s">
-            <div className="flex flex-wrap">
-              <div className="w-full lg:px-4">
-                <div className="w-full items-center overflow-hidden lg:flex">
-                  <div className="w-full p-7 md:pr-12 lg:w-[60%] ">
-                    <span
-                      className={`mb-5 inline-block ${styles.primary__bg} py-2 px-5 text-sm font-medium text-white`}
-                    >
-                      Know Us
-                    </span>
-                    <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]">
-                      {aboutData.company_name}
-                    </h2>
-                    <p className="mb-2 text-gray-500 text-[0.88rem] leading-relaxed">
-                      {aboutData.description}
-                    </p>
+        {!loading ? (
+          <div className="lg:container mx-auto ">
+            <div className="wow fadeInUp bg-white" data-wow-delay=".2s">
+              <div className="flex flex-wrap">
+                <div className="w-full lg:px-4">
+                  <div className="w-full items-center overflow-hidden lg:flex">
+                    <div className="w-full p-7 md:pr-12 lg:w-[60%] ">
+                      <span
+                        className={`mb-5 inline-block ${styles.primary__bg} py-2 px-5 text-sm font-medium text-white`}
+                      >
+                        Know Us
+                      </span>
+                      <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]">
+                        {aboutData.company_name}
+                      </h2>
+                      <p className="mb-2 text-gray-500 text-[0.88rem] leading-relaxed">
+                        {aboutData.description}
+                      </p>
 
-                    <div className="m-0 flex flex-wrap">
-                      <div className="w-full md:px-0 px-2 md:w-1/2">
-                        <IconCard
-                          icon={
-                            <GiArcheryTarget
-                              className={`${styles.primary__bg} text-white p-2 absolute top-0 left-0 z-[-1] flex rotate-[25deg] items-center justify-center rounded-2xl bg-opacity-20 duration-300 group-hover:rotate-45`}
-                              size={60}
-                            />
-                          }
-                          maintext="Mission"
-                          subtext={aboutData.mission}
-                        />
-                      </div>
-                      <div className="w-full md:px-0 px-2 md:w-1/2">
-                        <IconCard
-                          icon={
-                            <GiBullseye
-                              className={`${styles.primary__bg} text-white p-2 absolute top-0 left-0 z-[-1] flex rotate-[25deg] items-center justify-center rounded-2xl bg-opacity-20 duration-300 group-hover:rotate-45`}
-                              size={60}
-                            />
-                          }
-                          maintext="Mission"
-                          subtext={aboutData.vision}
-                        />
+                      <div className="m-0 flex flex-wrap">
+                        <div className="w-full md:px-0 px-2 md:w-1/2">
+                          <IconCard
+                            icon={
+                              <GiArcheryTarget
+                                className={`${styles.primary__bg} text-white p-2 absolute top-0 left-0 z-[-1] flex rotate-[25deg] items-center justify-center rounded-2xl bg-opacity-20 duration-300 group-hover:rotate-45`}
+                                size={60}
+                              />
+                            }
+                            maintext="Mission"
+                            subtext={aboutData.mission}
+                          />
+                        </div>
+                        <div className="w-full md:px-0 px-2 md:w-1/2">
+                          <IconCard
+                            icon={
+                              <GiBullseye
+                                className={`${styles.primary__bg} text-white p-2 absolute top-0 left-0 z-[-1] flex rotate-[25deg] items-center justify-center rounded-2xl bg-opacity-20 duration-300 group-hover:rotate-45`}
+                                size={60}
+                              />
+                            }
+                            maintext="Mission"
+                            subtext={aboutData.vision}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="text-center w-full lg:w-[40%]">
-                    <div className="relative z-10 inline-block">
-                      <img
-                        src={aboutData.image_one}
-                        alt="about children"
-                        className="mx-auto lg:ml-auto"
-                      />
+                    <div className="text-center w-full lg:w-[40%]">
+                      <div className="relative z-10 inline-block">
+                        <img
+                          src={aboutData.image_one}
+                          alt="about children"
+                          className="mx-auto lg:ml-auto"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="p-6">
+              <Title style={`${styles.header__text}`} title="Core Values" />
+            </div>
+            <div className="m-0 flex flex-wrap border ">
+              {valuesData.map((value) => (
+                <div
+                  key={value.maintext}
+                  className="w-full px-4 md:w-1/2 lg:w-1/3 border"
+                >
+                  <IconCard
+                    icon={value.icon}
+                    maintext={value.maintext}
+                    subtext={value.subtext}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="p-6">
-            <Title style={`${styles.header__text}`} title="Core Values" />
-          </div>
-          <div className="m-0 flex flex-wrap border ">
-            {valuesData.map((value) => (
-              <div
-                key={value.maintext}
-                className="w-full px-4 md:w-1/2 lg:w-1/3 border"
-              >
-                <IconCard
-                  icon={value.icon}
-                  maintext={value.maintext}
-                  subtext={value.subtext}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        ) : (
+          <Loading repeatNumber={1} type={LOAD_1} />
+        )}
       </section>
 
       {/* register banner */}

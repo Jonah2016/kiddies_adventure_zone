@@ -17,7 +17,7 @@ function CardsSlider(props) {
     slidesContainer.scrollLeft -= slideWidth;
   };
 
-  function renderBooks(bookData) {
+  function renderItems(bookData) {
     // Use the map function on the data array
     const mappedData = bookData.map((item) => {
       return (
@@ -85,7 +85,7 @@ function CardsSlider(props) {
       <div
         className={`${styles.slides__container} slidesContainer h-[${containerHeight}] flex snap-x snap-mandatory overflow-hidden overflow-x-auto space-x-2 rounded scroll-smooth before:w-[45vw] before:shrink-0 after:w-[45vw] after:shrink-0 md:before:w-0 md:after:w-0`}
       >
-        {data.length > 0 && renderBooks(data)}
+        {data.length > 0 && renderItems(data)}
       </div>
 
       <div className="absolute top-0 -left-4 h-full items-center flex">

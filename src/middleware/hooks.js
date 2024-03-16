@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
+// this function hook takes the url of the aoi and returns
+// @Returns an object of {data, loading, error }
+// Where data => object, loading => boolean, error => any type
+
 function useFetchData(url) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -14,14 +18,16 @@ function useFetchData(url) {
       } catch (error) {
         setError(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 8000); // Set timeout before setting loading to false
       }
     };
 
     fetchData();
   }, [url]); // Dependency array to trigger refetch on URL change
 
-  return { data, error, loading };
+  return { data, loading, error };
 }
 
 export default useFetchData;
