@@ -49,8 +49,8 @@ function Loading({ type, repeatNumber }) {
               <div className="-mt-8 inline-block rounded-full p-10 shadow-md stripe"></div>
             </div>
             <div className="p-6">
-              <h5 className="mb-4 stripe_md"></h5>
-              <p className="stripe_lg"></p>
+              <div className="mb-4 stripe_md"></div>
+              <div className="stripe_lg"></div>
             </div>
           </div>
         </div>

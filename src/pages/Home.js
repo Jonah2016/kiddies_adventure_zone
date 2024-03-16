@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import useFetchData from "../middleware/hooks";
 import Loading from "../components/Loading";
 
-const { LOAD_1, LOAD_4, LOAD_6, LOAD_7 } = require("../constants/index.js");
+const { LOAD_1, LOAD_4, LOAD_7 } = require("../constants/index.js");
 
 const servicesData = [
   {
