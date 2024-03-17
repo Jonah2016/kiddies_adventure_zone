@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/kiddies_adventure_zone/static/css/main.9f20a552.css",
+    "main.js": "/kiddies_adventure_zone/static/js/main.addb2d51.js",
+    "static/media/logo1.jpeg": "/kiddies_adventure_zone/static/media/logo1.b45075944a16c69b218b.jpeg",
+    "index.html": "/kiddies_adventure_zone/index.html",
+    "main.9f20a552.css.map": "/kiddies_adventure_zone/static/css/main.9f20a552.css.map",
+    "main.addb2d51.js.map": "/kiddies_adventure_zone/static/js/main.addb2d51.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f20a552.css",
+    "static/js/main.addb2d51.js"
+  ]
+}
