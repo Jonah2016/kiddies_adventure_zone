@@ -68,10 +68,10 @@ function BookDetails() {
               </div>
               <div>
                 {bookData.award_status === 1 && (
-                  <div className="my-3">
+                  <div className="my-4">
                     <b className="py-3">Best Selling Award: </b>
                     <BsAward
-                      size={40}
+                      size={50}
                       className="text-green-500"
                       title="Best selling award"
                     />
@@ -88,7 +88,7 @@ function BookDetails() {
                 </p>
               </div> */}
               <div className="product-detail">
-                <h2>about this book: </h2>
+                <h2 className="font-bold">about this book: </h2>
                 <p>{bookData.description}</p>
                 <ul>
                   <li>
