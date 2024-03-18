@@ -31,7 +31,7 @@ To install Kiddies Adventure Zone locally, follow these steps:
     Install dependencies: npm install
 ```
 
-Create an `.env` file and provide the following from the `<b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b>` project
+Create an `.env` file and provide the following from the <b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b> project
 
 1. REACT_APP_ABOUT_URL=http://localhost:3001/api/about/{:id}
 2. REACT_APP_SERVICE_URL=http://localhost:3001/api/service/
@@ -61,7 +61,7 @@ We welcome contributions from the community to make Kiddies Adventure Zone even 
 
 ### Related Projects
 
-API: This frontend application is hooked to an API called `<b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b>`
+API: This frontend application is hooked to an API called <b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b>
 
 ### Licensing
 
