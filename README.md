@@ -11,7 +11,7 @@ Kids lack an engaging online space specifically designed for their unique needs 
 Capturing the diverse needs and interests of all children within a single online platform, ensuring content and engagement remains equally appealing across different age groups and learning styles.
 
 <b>Target Audience:</b>
-The project is relevant to anyone interested in reading however the main focus is on parents and children under 18years.
+The project is relevant to anyone interested in reading however the main focus is on parents and kids under 18years.
 Locale: The project's relevance is not tied to a specific location.
 
 ### Tasks and Importance:
