@@ -13,4 +13,3 @@ Capturing the diverse needs and interests of all children within a single online
 <b>Target Audience:</b>
 The project is relevant to anyone interested in reading however the main focus is on parents and children under 18years.
 Locale: The project's relevance is not tied to a specific location.
-
