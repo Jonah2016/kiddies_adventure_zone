@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import HeaderHeroShort from "../components/HeaderHeroShort";
 import Footer from "../components/Footer";
@@ -32,8 +32,27 @@ function Library() {
     process.env.REACT_APP_CATALOG_URL
   );
 
-  const renderBooks = (allBooks) => {
-    return allBooks.map((book) => <BookCard props={book} />);
+  const [filteredBooks, setFilteredBooks] = useState(books);
+
+  useEffect(() => {
+    // check if the books are not empty, if so then the
+    // API call was successful and we can update our filteredBooks state
+    if (Object.keys(books).length > 0) {
+      setFilteredBooks(books);
+    }
+  }, [books]); // this effect should run when the books state gets updated
+
+  const filterBookItems = (searchTerm) => {
+    // use 'books' instead of 'api-books' to do the filtering
+    const filteredItems = books.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setFilteredBooks(filteredItems);
+  };
+
+  const renderBooks = (booksData) => {
+    return booksData.map((book) => <BookCard props={book} />);
   };
 
   return (
@@ -45,13 +64,13 @@ function Library() {
 
       <section className="row mb-12">
         <div className="flex justify-center mx-auto items-center">
-          <FloatSearch />
+          <FloatSearch onChangeSearchCallback={filterBookItems} />
         </div>
       </section>
 
       <section className="row mb-12">
         {!loading ? (
-          books.length > 0 && renderBooks(books)
+          filteredBooks.length > 0 && renderBooks(filteredBooks)
         ) : (
           <Loading repeatNumber={4} type={LOAD_6} />
         )}
