@@ -21,7 +21,7 @@ Locale: The project's relevance is not tied to a specific location.
 2. Navigation: Developing intuitive navigation features enhances user experience by facilitating easy access to desired quotes and authors.
 3. Responsive Design: Designing a responsive and user-friendly interface ensures accessibility and optimal viewing experiences across different devices, catering to the needs of a diverse user base.
 
-### Installation
+### Installation procedure
 
 To install Kiddies Adventure Zone locally, follow these steps:
 
