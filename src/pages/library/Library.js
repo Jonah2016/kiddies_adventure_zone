@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import HeaderHeroShort from "../components/HeaderHeroShort";
-import Footer from "../components/Footer";
-import BookCard from "../components/BookCard";
-import BookAdCard from "../components/BookAdCard";
-import RegisterBanner from "../components/RegisterBanner";
-import FloatSearch from "../components/FloatSearch";
-import useFetchData from "../middleware/hooks";
-import Loading from "../components/Loading";
-import EmptyResult from "../components/EmptyResult.jsx";
+import Navbar from "../../components/Navbar.jsx";
+import HeaderHeroShort from "../../components/HeaderHeroShort.jsx";
+import Footer from "../../components/Footer.jsx";
+import BookCard from "../../components/BookCard.jsx";
+import BookAdCard from "../../components/BookAdCard.jsx";
+import RegisterBanner from "../../components/RegisterBanner.jsx";
+import FloatSearch from "../../components/FloatSearch.jsx";
+import useFetchData from "../../middleware/hooks.js";
+import Loading from "../../components/Loading.jsx";
+import EmptyResult from "../../components/EmptyResult.jsx";
 
-const { LOAD_6 } = require("../constants/index.js");
+const { LOAD_6 } = require("../../constants/index.js");
 
 const heroProperties = {
   banner:
@@ -30,7 +30,7 @@ const heroProperties = {
 
 function Library() {
   const { data: books, loading } = useFetchData(
-    process.env.REACT_APP_CATALOG_URL
+    process.env.REACT_APP_CATALOG_API_URL
   );
 
   const [filteredBooks, setFilteredBooks] = useState(books);

@@ -65,7 +65,7 @@ input[type="submit"] {
   height: 10px;
   width: 3px;
 }
-::selection {
+/* ::selection {
   background-color: #ffffff00;
   color: #ffffff00;
-}
+} */

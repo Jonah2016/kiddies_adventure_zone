@@ -3,6 +3,8 @@ import "./BookCard.css";
 import RatingStars from "./RatingStars";
 import { Link } from "react-router-dom";
 
+const baseUrl = process.env.REACT_APP_BASE_URL + "library/";
+
 function BookCard({ props }) {
   const {
     _id,
@@ -23,7 +25,7 @@ function BookCard({ props }) {
         </div>
         <div className="descp">
           <h2 className="book-name">
-            {/* <Link to={`${process.env.REACT_APP_BOOKS_URL}/${_id}`}> */}
+            {/* <Link to={`${baseUrl}${process.env.REACT_APP_BOOKS_URL}/${_id}`}> */}
             {title}
             {/* </Link> */}
           </h2>
@@ -39,7 +41,7 @@ function BookCard({ props }) {
           <h3 className="author">Year: {year_published}</h3>
           <p className="info">{briefing} </p>
           <div className="mt-6">
-            <Link className="book_button" to={`${_id}`}>
+            <Link className="book_button" to={`${baseUrl}${_id}`}>
               See the Book
             </Link>
           </div>
