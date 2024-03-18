@@ -8,6 +8,7 @@ import RegisterBanner from "../components/RegisterBanner";
 import FloatSearch from "../components/FloatSearch";
 import useFetchData from "../middleware/hooks";
 import Loading from "../components/Loading";
+import EmptyResult from "../components/EmptyResult.jsx";
 
 const { LOAD_6 } = require("../constants/index.js");
 
@@ -44,8 +45,12 @@ function Library() {
 
   const filterBookItems = (searchTerm) => {
     // use 'books' instead of 'api-books' to do the filtering
-    const filteredItems = books.filter((book) =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredItems = books.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.year_published.toString().includes(searchTerm) ||
+        book.author.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     setFilteredBooks(filteredItems);
@@ -70,7 +75,19 @@ function Library() {
 
       <section className="row mb-12">
         {!loading ? (
-          filteredBooks.length > 0 && renderBooks(filteredBooks)
+          filteredBooks.length > 0 ? (
+            renderBooks(filteredBooks)
+          ) : (
+            <div className="mx-auto">
+              <EmptyResult
+                data={{
+                  title: "No books were found!",
+                  description:
+                    "Please refresh the page or try other parameters",
+                }}
+              />
+            </div>
+          )
         ) : (
           <Loading repeatNumber={4} type={LOAD_6} />
         )}
