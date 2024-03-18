@@ -5,6 +5,7 @@ import Library from "./pages/Library";
 import Services from "./pages/Services";
 import Events from "./pages/Events";
 import Media from "./pages/Media";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/events" element={<Events />} />
         <Route path="/library" element={<Library />} />
+        <Route path="/library/:id" element={<BookDetails />} />
         <Route path="/media" element={<Media />} />
       </Routes>
     </div>
