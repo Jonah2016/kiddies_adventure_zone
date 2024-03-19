@@ -1,8 +1,10 @@
-# Purpose
+# Kiddies Adventure Zone
 
-Alternative Technology Considerations: For the backend framework, ExpressJS was evaluated. ExpressJS is well-established and offers more flexibility and large package access suitable for medium to larger applications. We choose NodeJS if it works, if not we will move to PHP which is also a more lenient and easy to use technology which will speed up our development process while providing similar capabilities.
+<img src="./readme/logo.jpeg">
+<img src="./readme/about.jpg">
+*Tagline: Explore the Universe of Books and Entertainment For Kids*
 
-# Challenge Statement
+# Purpose and Challenge Statement
 
 <b>Problem:</b>
 Kids lack an engaging online space specifically designed for their unique needs of learning, leaving parents struggling to find age-appropriate events and book resources. We need to create a safe, interactive website, "Kiddies Adventure Zone," that sparks kids' imagination, fosters a love for reading, and connects them to a community of young learners.
@@ -21,6 +23,14 @@ Locale: The project's relevance is not tied to a specific location.
 2. Navigation: Developing intuitive navigation features enhances user experience by facilitating easy access to desired quotes and authors.
 3. Responsive Design: Designing a responsive and user-friendly interface ensures accessibility and optimal viewing experiences across different devices, catering to the needs of a diverse user base.
 
+### Live
+
+Access the live version of the app from here: <b><a href="https://jonah2016.github.io/kiddies_zone/">Kiddies Adventure Zone</a></b>
+
+### Technologies
+
+Technology Considerations: For the frontend framework, ReactJS was evaluated. ReactJS is well-established and offers more flexibility and large package access suitable for medium to larger applications. We choose React because it is more lenient, popular and easy to use technology which will speed up our development process while providing great capabilities. We chose Tailwind CSS as our styling tool.
+
 ### Installation procedure
 
 To install Kiddies Adventure Zone locally, follow these steps:
@@ -30,7 +40,7 @@ To install Kiddies Adventure Zone locally, follow these steps:
     Navigate to the project directory: cd kiddies_adventure_zone
     Install dependencies: npm install
 
-    Create an `.env` file and provide the following from the <b><a href="https://github.com/Jonah2016/kiddies_backend">kiddies_backend</a></b> project
+    Create an `.env` file and provide the following from https://github.com/Jonah2016/kiddies_backend" `kiddies_backend` project
     1. REACT_APP_ABOUT_API_URL=http://localhost:3001/api/about/{:id}
     2. REACT_APP_SERVICE_API_URL=http://localhost:3001/api/service/
     3. REACT_APP_BOOKS_API_URL=http://localhost:3001/api/book/
